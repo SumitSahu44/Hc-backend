@@ -1,0 +1,666 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option1 Linked To,Option2 Name,Option2 Value,Option2 Linked To,Option3 Name,Option3 Value,Option3 Linked To,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Unit Price Total Measure,Unit Price Total Measure Unit,Unit Price Base Measure,Unit Price Base Measure Unit,Variant Barcode,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Product rating count (product.metafields.custom.product_rating_count),Product rating count (product.metafields.reviews.rating_count),Variant Image,Variant Weight Unit,Variant Tax Code,Cost per item,Status
+product-name-title,Product title,"<p data-start=""262"" data-end=""654"">Savor the rich taste of our <strong data-start=""290"" data-end=""324"">handpicked nuts and dry fruits</strong>, carefully selected for ultimate freshness and quality. This premium mix includes <strong data-start=""407"" data-end=""452"">almonds, cashews, walnuts, and pistachios</strong>, delivering the perfect combination of flavor, crunch, and nutrition. Ideal for <strong data-start=""533"" data-end=""590"">snacking, gifting, or enhancing your favorite recipes</strong>, our nuts are packed to preserve their natural taste and aroma.</p>
+<p data-start=""656"" data-end=""673""><strong data-start=""656"" data-end=""671"">Highlights:</strong></p>
+<ul data-start=""674"" data-end=""957"">
+<li data-start=""674"" data-end=""741"">
+<p data-start=""676"" data-end=""741""><strong data-start=""676"" data-end=""704"">Fresh &amp; Premium Quality:</strong> Only the finest nuts are selected.</p>
+</li>
+<li data-start=""742"" data-end=""813"">
+<p data-start=""744"" data-end=""813""><strong data-start=""744"" data-end=""766"">Rich in Nutrients:</strong> High in protein, vitamins, and antioxidants.</p>
+</li>
+<li data-start=""814"" data-end=""884"">
+<p data-start=""816"" data-end=""884""><strong data-start=""816"" data-end=""847"">Perfect for Every Occasion:</strong> Enjoy daily or gift to loved ones.</p>
+</li>
+<li data-start=""885"" data-end=""957"">
+<p data-start=""887"" data-end=""957""><strong data-start=""887"" data-end=""914"">Eco-Friendly Packaging:</strong> Airtight, stylish, and safe for storage.</p>
+</li>
+</ul>
+<h3 data-start=""959"" data-end=""984""><strong data-start=""963"" data-end=""982"">Weight &amp; Price:</strong></h3>
+<ul data-start=""985"" data-end=""1025"">
+<li data-start=""985"" data-end=""1005"">
+<p data-start=""987"" data-end=""1005""><strong data-start=""987"" data-end=""998"">Weight:</strong> 500g</p>
+</li>
+<li data-start=""1006"" data-end=""1025"">
+<p data-start=""1008"" data-end=""1025""><strong data-start=""1008"" data-end=""1018"">Price:</strong> ₹500</p>
+</li>
+</ul>
+<h3 data-start=""1027"" data-end=""1054""><strong data-start=""1031"" data-end=""1052"">Usage Suggestion:</strong></h3>
+<p data-start=""1055"" data-end=""1186"">Enjoy as a <strong data-start=""1066"" data-end=""1083"">healthy snack</strong>, sprinkle over <strong data-start=""1099"" data-end=""1121"">salads or desserts</strong>, or use in your <strong data-start=""1138"" data-end=""1156"">baking recipes</strong> for a premium nutty flavor.</p>",My Store,Uncategorized,"","",false,Title,Default Title,,,,,,,,,0.0,shopify,0,deny,manual,500.00,,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixNuts.png?v=1767636078,1,"",false,,,,,,kg,,,draft
+product-name-title,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/Gemini_Generated_Image_xbbn1rxbbn1rxbbn-removebg-preview.png?v=1767636077,2,"",,,,,,,,,,
+mixnuts-premium-nut-seed-health-powder,MixNuts Premium Homemade Nut Powder – Fresh Batch | 100% Natural | Single Pack,"<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #2e2a39bf; /* Updated text color */
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.55s ease;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1200px;
+  }
+
+  .mixnuts-toggle {
+    color: #9a252d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-toggle:hover {
+    opacity: 0.7;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 12px 0;
+  }
+
+  /* Key Benefits Box */
+  .mixnuts-benefits {
+    border: 1px solid #9a252d;
+    border-radius: 20px;
+    padding: 28px 30px;
+    margin-top: 35px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-benefits:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  }
+
+  .mixnuts-benefits h3 {
+    color: #9a252d;
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 18px;
+  }
+
+  .mixnuts-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mixnuts-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #2e2a39bf;
+    font-weight: 500;
+    padding-left: 5px;
+  }
+
+  .strong{
+    font-weight:700;
+  }
+
+</style>
+
+<!-- Description Section with Read More -->
+<div class=""mixnuts-desc"">
+  <div class=""mixnuts-short"">
+    <p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+  </div>
+
+  <div class=""mixnuts-full"">
+    <p><strong>Each scoop contains</strong> a natural blend of:</p>
+    <ul>
+      <li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+      <li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+      <li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+    </ul>
+    <p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+
+    <p style=""font-size: 14px; color: #777; margin-top: 10px;"">
+      Crafted with love in India 🇮🇳 | Powered by <span style=""color: #9a252d;"">MixNuts</span>
+    </p>
+  </div>
+
+  <span class=""mixnuts-toggle"">Read More ▼</span>
+</div>
+
+<!-- Key Benefits Section -->
+<div class=""mixnuts-benefits"">
+  <h3>Key Benefits</h3>
+  <ul>
+    <li>✔ Improves heart health &amp; rich in antioxidants</li>
+    <li>✔ Supports bone health with calcium &amp; magnesium</li>
+    <li>✔ Reduces stress &amp; anxiety naturally</li>
+    <li>✔ Boosts immunity &amp; stamina</li>
+    <li>✔ Improves skin health &amp; maintains fluid balance</li>
+  </ul>
+</div>
+
+<script>
+  const toggleBtn = document.querySelector("".mixnuts-toggle"");
+  const fullDesc = document.querySelector("".mixnuts-full"");
+
+  toggleBtn.addEventListener(""click"", () => {
+    fullDesc.classList.toggle(""open"");
+    toggleBtn.textContent = fullDesc.classList.contains(""open"")
+      ? ""Read Less ▲""
+      : ""Read More ▼"";
+  });
+</script>
+",MixNuts,"Food, Beverages & Tobacco > Food Items > Cooking & Baking Ingredients","","",true,Title,Default Title,,,,,,,,,0.0,shopify,0,continue,manual,1000.00,1199.00,true,false,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main1-01_626affac-de98-41d6-a30a-438a47a21c4e.jpg?v=1767636076,1,"",false,,,,'8,,kg,,,active
+mixnuts-premium-nut-seed-health-powder,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic2-01_4.jpg?v=1767636077,2,"",,,,,,,,,,
+mixnuts-premium-nut-seed-health-powder,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic3-01_2.jpg?v=1767636077,3,"",,,,,,,,,,
+mixnuts-premium-nut-seed-health-powder,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-02_ed32b33f-2dcc-4370-af96-c5fc1c4671fb.jpg?v=1767636076,4,"",,,,,,,,,,
+mixnuts-premium-nut-seed-health-powder,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-03_aa1b4f01-4323-4ca9-a316-10df5fed1d7e.jpg?v=1767636076,5,"",,,,,,,,,,
+🌰-mixnuts-3-month-premium-health-combo-1,MixNuts 3-Month Premium Health Combo,"<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1000px; /* enough to show all content smoothly */
+  }
+
+  .mixnuts-toggle {
+    color: #c9a77d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .mixnuts-toggle:hover {
+    text-decoration: underline;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 10px 0;
+  }
+
+  .mixnuts-full ul {
+    margin-left: 20px;
+  }
+</style>
+
+<div class=""mixnuts-desc"">
+  <div class=""mixnuts-short"">
+    <p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+  </div>
+
+  <div class=""mixnuts-full"">
+    <p><strong>Each scoop contains</strong> a natural blend of:</p>
+    <ul>
+      <li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+      <li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+      <li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+    </ul>
+
+    <p><strong>Benefits of MixNuts:</strong></p>
+    <ul>
+      <li>✔ Improves memory and focus</li>
+      <li>✔ Boosts stamina and overall strength</li>
+      <li>✔ Builds immunity and supports heart health</li>
+      <li>✔ Delicious flavor for kids and adults</li>
+    </ul>
+
+    <p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+
+    <p style=""font-size:14px;color:#777;margin-top:10px;"">Crafted with love in India 🇮🇳 | Powered by <span style=""color:#c9a77d;"">MixNuts</span></p>
+  </div>
+
+  <span class=""mixnuts-toggle"" onclick=""toggleMixNutsDesc(this)"">Read More ▼</span>
+</div>
+
+<script>
+  function toggleMixNutsDesc(btn) {
+    const fullText = btn.previousElementSibling;
+    fullText.classList.toggle('open');
+
+    if (fullText.classList.contains('open')) {
+      btn.textContent = 'Read Less ▲';
+    } else {
+      btn.textContent = 'Read More ▼';
+    }
+  }
+</script>
+",MixNuts,"Food, Beverages & Tobacco > Food Items > Cooking & Baking Ingredients","","",false,Title,Default Title,,,,,,,,,0.0,shopify,995,deny,manual,2799.00,3499.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/Gemini_Generated_Image_hasw5hasw5hasw5h.png?v=1767636076,1,"",false,,,,,,kg,,,draft
+🌰-mixnuts-3-month-premium-health-combo-copy,🌰 MixNuts 2-Month Premium Health Combo (Copy),"<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1000px; /* enough to show all content smoothly */
+  }
+
+  .mixnuts-toggle {
+    color: #c9a77d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .mixnuts-toggle:hover {
+    text-decoration: underline;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 10px 0;
+  }
+
+  .mixnuts-full ul {
+    margin-left: 20px;
+  }
+</style>
+<div class=""mixnuts-desc"">
+<div class=""mixnuts-short"">
+<p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+</div>
+<div class=""mixnuts-full"">
+<p><strong>Each scoop contains</strong> a natural blend of:</p>
+<ul>
+<li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+<li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+<li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+</ul>
+<p><strong>Benefits of MixNuts:</strong></p>
+<ul>
+<li>✔ Improves memory and focus</li>
+<li>✔ Boosts stamina and overall strength</li>
+<li>✔ Builds immunity and supports heart health</li>
+<li>✔ Delicious flavor for kids and adults</li>
+</ul>
+<p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+<p style=""font-size: 14px; color: #777; margin-top: 10px;"">Crafted with love in India 🇮🇳 | Powered by <span style=""color: #c9a77d;"">MixNuts</span></p>
+</div>
+<span class=""mixnuts-toggle"">Read More ▼</span>
+</div>
+<p> </p>",MixNuts,"Food, Beverages & Tobacco > Food Items > Cooking & Baking Ingredients","","",false,Title,Default Title,,,,,,,,,0.0,shopify,995,deny,manual,1799.00,2499.00,true,true,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic2-01_1.jpg?v=1767636075,1,"",false,,,,,,kg,,,draft
+🌰-mixnuts-3-month-premium-health-combo-copy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic4-01_1.jpg?v=1767636075,2,"",,,,,,,,,,
+best-combo-deal,Single MIxNuts,"<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1000px; /* enough to show all content smoothly */
+  }
+
+  .mixnuts-toggle {
+    color: #c9a77d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .mixnuts-toggle:hover {
+    text-decoration: underline;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 10px 0;
+  }
+
+  .mixnuts-full ul {
+    margin-left: 20px;
+  }
+</style>
+<div class=""mixnuts-desc"">
+<div class=""mixnuts-short"">
+<p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+</div>
+<div class=""mixnuts-full"">
+<p><strong>Each scoop contains</strong> a natural blend of:</p>
+<ul>
+<li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+<li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+<li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+</ul>
+<p><strong>Benefits of MixNuts:</strong></p>
+<ul>
+<li>✔ Improves memory and focus</li>
+<li>✔ Boosts stamina and overall strength</li>
+<li>✔ Builds immunity and supports heart health</li>
+<li>✔ Delicious flavor for kids and adults</li>
+</ul>
+<p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+<p style=""font-size: 14px; color: #777; margin-top: 10px;"">Crafted with love in India 🇮🇳 | Powered by <span style=""color: #c9a77d;"">MixNuts</span></p>
+</div>
+<span class=""mixnuts-toggle"">Read More ▼</span>
+</div>
+<p> </p>",MixNuts,Uncategorized,"","",false,Quantity,1,,,,,,,,,0.0,,0,deny,manual,999.00,1199.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/dryfood2.jpg?v=1767636074,1,"",false,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-01.jpg?v=1767636073,kg,,,draft
+best-combo-deal,,,,,,,,,2,,,,,,,,,0.0,,0,deny,manual,1799.00,2398.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic2-01_1_f228446f-475c-41dc-a114-5efa4f3fb574.jpg?v=1767636074,2,"",,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-02.jpg?v=1767636073,kg,,,
+best-combo-deal,,,,,,,,,3,,,,,,,,,0.0,,0,deny,manual,2799.00,3597.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic4-01_1_e06c41ce-1ff9-465b-b921-c2711106e87a.jpg?v=1767636074,3,"",,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-03.jpg?v=1767636073,kg,,,
+best-combo-deal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic3-01_1.jpg?v=1767636075,4,"",,,,,,,,,,
+best-combo-deal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-01.jpg?v=1767636073,5,"",,,,,,,,,,
+best-combo-deal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-02.jpg?v=1767636073,6,"",,,,,,,,,,
+best-combo-deal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main_1-03.jpg?v=1767636073,7,"",,,,,,,,,,
+mixnuts-homemade-premium-combo-2-pack-100-natural-value-saver,"MixNuts Premium Nut Powder Duo Pack (2-Pack) – Fresh, Natural & Value Saver","<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #2e2a39bf; /* Updated text color */
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.55s ease;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1200px;
+  }
+
+  .mixnuts-toggle {
+    color: #9a252d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-toggle:hover {
+    opacity: 0.7;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 12px 0;
+  }
+
+  /* Key Benefits Box */
+  .mixnuts-benefits {
+    border: 1px solid #9a252d;
+    border-radius: 20px;
+    padding: 28px 30px;
+    margin-top: 35px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-benefits:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  }
+
+  .mixnuts-benefits h3 {
+    color: #9a252d;
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 18px;
+  }
+
+  .mixnuts-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mixnuts-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #2e2a39bf;
+    font-weight: 500;
+    padding-left: 5px;
+  }
+
+  .strong{
+    font-weight:700;
+  }
+
+</style>
+
+<!-- Description Section with Read More -->
+<div class=""mixnuts-desc"">
+  <div class=""mixnuts-short"">
+    <p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+  </div>
+
+  <div class=""mixnuts-full"">
+    <p><strong>Each scoop contains</strong> a natural blend of:</p>
+    <ul>
+      <li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+      <li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+      <li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+    </ul>
+    <p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+
+    <p style=""font-size: 14px; color: #777; margin-top: 10px;"">
+      Crafted with love in India 🇮🇳 | Powered by <span style=""color: #9a252d;"">MixNuts</span>
+    </p>
+  </div>
+
+  <span class=""mixnuts-toggle"">Read More ▼</span>
+</div>
+
+<!-- Key Benefits Section -->
+<div class=""mixnuts-benefits"">
+  <h3>Key Benefits</h3>
+  <ul>
+    <li>✔ Improves heart health &amp; rich in antioxidants</li>
+    <li>✔ Supports bone health with calcium &amp; magnesium</li>
+    <li>✔ Reduces stress &amp; anxiety naturally</li>
+    <li>✔ Boosts immunity &amp; stamina</li>
+    <li>✔ Improves skin health &amp; maintains fluid balance</li>
+  </ul>
+</div>
+
+<script>
+  const toggleBtn = document.querySelector("".mixnuts-toggle"");
+  const fullDesc = document.querySelector("".mixnuts-full"");
+
+  toggleBtn.addEventListener(""click"", () => {
+    fullDesc.classList.toggle(""open"");
+    toggleBtn.textContent = fullDesc.classList.contains(""open"")
+      ? ""Read Less ▲""
+      : ""Read More ▼"";
+  });
+</script>
+",MixNuts,"Food, Beverages & Tobacco > Food Items > Fruits & Vegetables > Dried Fruits","","",true,Title,Default Title,,,,,,,,,0.0,shopify,1000,deny,manual,1699.00,2398.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main1-02.jpg?v=1767636072,1,"",false,,,,,,kg,,,active
+mixnuts-homemade-premium-combo-2-pack-100-natural-value-saver,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic3-01_2_f5d6996e-cdd6-4c4a-9580-9a2d17abc39a.jpg?v=1767636073,2,"",,,,,,,,,,
+mixnuts-homemade-premium-combo-2-pack-100-natural-value-saver,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic2-01_4_ebee2136-ed08-4cad-8696-d79602e680aa.jpg?v=1767636074,3,"",,,,,,,,,,
+mixnuts-triple-pack-bundle-3-pack-homemade-100-natural-best-value,"MixNuts Premium Nut Powder Triple Pack (3-Pack) – Homemade, 100% Natural & Best Value","<style>
+  .mixnuts-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #2e2a39bf; /* Updated text color */
+    line-height: 1.8;
+    font-size: 15px;
+    position: relative;
+  }
+
+  .mixnuts-short {
+    margin-bottom: 5px;
+  }
+
+  .mixnuts-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.55s ease;
+  }
+
+  .mixnuts-full.open {
+    max-height: 1200px;
+  }
+
+  .mixnuts-toggle {
+    color: #9a252d;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 8px;
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-toggle:hover {
+    opacity: 0.7;
+  }
+
+  .mixnuts-full p,
+  .mixnuts-short p {
+    margin: 0 0 12px 0;
+  }
+
+  /* Key Benefits Box */
+  .mixnuts-benefits {
+    border: 1px solid #9a252d;
+    border-radius: 20px;
+    padding: 28px 30px;
+    margin-top: 35px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: 0.3s ease;
+  }
+
+  .mixnuts-benefits:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  }
+
+  .mixnuts-benefits h3 {
+    color: #9a252d;
+    font-weight: 700;
+    font-size: 21px;
+    margin-bottom: 18px;
+  }
+
+  .mixnuts-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mixnuts-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #2e2a39bf;
+    font-weight: 500;
+    padding-left: 5px;
+  }
+
+  .strong{
+    font-weight:700;
+  }
+
+</style>
+
+<!-- Description Section with Read More -->
+<div class=""mixnuts-desc"">
+  <div class=""mixnuts-short"">
+    <p><strong>MixNuts Premium Dry Fruit Powder</strong> is a rich blend of 17 power-packed ingredients including almonds, cashews, makhana, ashwagandha, and saffron. Perfect for kids, adults, and seniors — crafted to boost energy, immunity, and brain power naturally.</p>
+  </div>
+
+  <div class=""mixnuts-full"">
+    <p><strong>Each scoop contains</strong> a natural blend of:</p>
+    <ul>
+      <li>Badam, Kaju, Makhana, Pumpkin Seeds</li>
+      <li>Ashwagandha, Safed Musli, Kesar, Ilachi</li>
+      <li>Channa Powder, Milk Powder, Chia &amp; Sunflower Seeds</li>
+    </ul>
+    <p><strong>How to Use:</strong> Add one spoon to warm milk or smoothies daily for a wholesome and tasty nutrition boost.</p>
+
+    <p style=""font-size: 14px; color: #777; margin-top: 10px;"">
+      Crafted with love in India 🇮🇳 | Powered by <span style=""color: #9a252d;"">MixNuts</span>
+    </p>
+  </div>
+
+  <span class=""mixnuts-toggle"">Read More ▼</span>
+</div>
+
+<!-- Key Benefits Section -->
+<div class=""mixnuts-benefits"">
+  <h3>Key Benefits</h3>
+  <ul>
+    <li>✔ Improves heart health &amp; rich in antioxidants</li>
+    <li>✔ Supports bone health with calcium &amp; magnesium</li>
+    <li>✔ Reduces stress &amp; anxiety naturally</li>
+    <li>✔ Boosts immunity &amp; stamina</li>
+    <li>✔ Improves skin health &amp; maintains fluid balance</li>
+  </ul>
+</div>
+
+<script>
+  const toggleBtn = document.querySelector("".mixnuts-toggle"");
+  const fullDesc = document.querySelector("".mixnuts-full"");
+
+  toggleBtn.addEventListener(""click"", () => {
+    fullDesc.classList.toggle(""open"");
+    toggleBtn.textContent = fullDesc.classList.contains(""open"")
+      ? ""Read Less ▲""
+      : ""Read More ▼"";
+  });
+</script>
+",MixNuts,"Food, Beverages & Tobacco > Food Items > Nuts & Seeds","","",true,Title,Default Title,,,,,,,,,0.0,shopify,1000,continue,manual,2399.00,3597.00,true,true,,,,,"",https://cdn.shopify.com/s/files/1/0850/6775/9809/files/main1-03.jpg?v=1767636071,1,"",false,,,,,,kg,,,active
+mixnuts-triple-pack-bundle-3-pack-homemade-100-natural-best-value,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic2-01_4_2a0c4193-1b47-4034-b1db-7de059d92db2.jpg?v=1767636072,2,"",,,,,,,,,,
+mixnuts-triple-pack-bundle-3-pack-homemade-100-natural-best-value,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,https://cdn.shopify.com/s/files/1/0850/6775/9809/files/mixnutsinfographic3-01_2_4a655216-fc9f-4707-ae6f-f613faceb70f.jpg?v=1767636072,3,"",,,,,,,,,,
