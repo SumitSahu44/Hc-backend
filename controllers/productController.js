@@ -61,3 +61,38 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
+
+exports.updateProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, category, siteId } = req.body;
+    const product = await Product.findById(id);
+
+    if (!product) {
+      if (req.file) fs.unlinkSync(req.file.path);
+      return res.status(404).json({ success: false, message: "Product not found." });
+    }
+
+    let image = product.image;
+    if (req.file) {
+      // Delete old image
+      if (product.image && fs.existsSync(product.image)) {
+        fs.unlinkSync(product.image);
+      }
+      image = req.file.path.replace(/\\/g, "/");
+    }
+
+    product.title = title || product.title;
+    product.category = category || product.category;
+    product.siteId = siteId || product.siteId;
+    product.image = image;
+
+    await product.save();
+
+    res.status(200).json({ success: true, message: "Product updated successfully.", data: product });
+  } catch (error) {
+    console.error("Update Product Error:", error);
+    if (req.file) fs.unlinkSync(req.file.path);
+    res.status(500).json({ success: false, message: "Internal server error." });
+  }
+};

@@ -3,10 +3,10 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-const productController = require("../controllers/productController");
+const mediaEventController = require("../controllers/mediaEventController");
 
 // Ensure upload directory exists
-const uploadDir = "uploads/products";
+const uploadDir = "uploads/media-events";
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
@@ -22,9 +22,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.get("/", productController.getProducts);
-router.post("/", upload.single("image"), productController.addProduct);
-router.put("/:id", upload.single("image"), productController.updateProduct);
-router.delete("/:id", productController.deleteProduct);
+router.get("/", mediaEventController.getMediaEvents);
+router.post("/", upload.single("image"), mediaEventController.addMediaEvent);
+router.put("/:id", upload.single("image"), mediaEventController.updateMediaEvent);
+router.delete("/:id", mediaEventController.deleteMediaEvent);
 
 module.exports = router;

@@ -37,6 +37,9 @@ app.use("/api/etrade", require("./routes/etradePlatformRoutes"));
 app.use("/api/product", require("./routes/productRoutes"));
 app.use("/api/category", require("./routes/categoryRoutes"));
 app.use("/api/membership", require("./routes/membershipRoutes"));
+app.use("/api/blogs", require("./routes/blogRoutes"));
+app.use("/api/careers", require("./routes/careerRoutes"));
+app.use("/api/media-events", require("./routes/mediaEventRoutes"));
 
 // Static Folder for Uploads
 app.use("/uploads", express.static("uploads"));

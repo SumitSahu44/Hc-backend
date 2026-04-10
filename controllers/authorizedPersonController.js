@@ -102,3 +102,45 @@ exports.getAuthorizedPersons = async (req, res) => {
     return res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
+
+exports.updateAuthorizedPerson = async (req, res) => {
+  try {
+    const { name, code } = req.body;
+    const { id } = req.params;
+
+    const person = await AuthorizedPerson.findById(id);
+    if (!person) {
+      return res.status(404).json({ success: false, message: "Authorized person not found." });
+    }
+
+    if (code !== person.code) {
+      const existing = await AuthorizedPerson.findOne({ code });
+      if (existing) {
+        return res.status(400).json({ success: false, message: "Code already exists." });
+      }
+    }
+
+    person.name = name || person.name;
+    person.code = code || person.code;
+    await person.save();
+
+    return res.status(200).json({ success: true, message: "Authorized person updated successfully.", data: person });
+  } catch (error) {
+    console.error("Update Authorized Person Error:", error);
+    return res.status(500).json({ success: false, message: "Internal server error." });
+  }
+};
+
+exports.deleteAuthorizedPerson = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const person = await AuthorizedPerson.findByIdAndDelete(id);
+    if (!person) {
+      return res.status(404).json({ success: false, message: "Authorized person not found." });
+    }
+    return res.status(200).json({ success: true, message: "Authorized person deleted successfully." });
+  } catch (error) {
+    console.error("Delete Authorized Person Error:", error);
+    return res.status(500).json({ success: false, message: "Internal server error." });
+  }
+};
