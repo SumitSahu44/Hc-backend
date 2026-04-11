@@ -31,7 +31,7 @@ exports.addCareer = async (req, res) => {
     if (careerData.contactEmail && !careerData.email) {
       careerData.email = careerData.contactEmail;
     }
-    
+
     const newCareer = new Career(careerData);
     await newCareer.save();
     res.status(201).json({
