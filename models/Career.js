@@ -16,6 +16,11 @@ const careerSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    required: false,
+    trim: true
+  },
+  contactEmail: {
+    type: String,
     required: true,
     trim: true
   },
@@ -47,8 +52,8 @@ const careerSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["Open", "Closed"],
-    default: "Open"
+    enum: ["Open", "Closed", "active", "closed"],
+    default: "active"
   }
 }, { timestamps: true });
 

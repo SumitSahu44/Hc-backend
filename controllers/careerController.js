@@ -26,13 +26,20 @@ exports.getCareers = async (req, res) => {
 // @route POST /api/careers
 exports.addCareer = async (req, res) => {
   try {
-    const newCareer = new Career(req.body);
+    const careerData = { ...req.body };
+    // Map contactEmail to email for backward compatibility with other frontends
+    if (careerData.contactEmail && !careerData.email) {
+      careerData.email = careerData.contactEmail;
+    }
+    
+    const newCareer = new Career(careerData);
     await newCareer.save();
     res.status(201).json({
       success: true,
       data: newCareer
     });
   } catch (error) {
+    console.error("❌ Add Career Error:", error.message);
     res.status(500).json({
       success: false,
       message: error.message
@@ -44,8 +51,13 @@ exports.addCareer = async (req, res) => {
 // @route PUT /api/careers/:id
 exports.updateCareer = async (req, res) => {
   try {
-    const career = await Career.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+    const careerData = { ...req.body };
+    if (careerData.contactEmail && !careerData.email) {
+      careerData.email = careerData.contactEmail;
+    }
+
+    const career = await Career.findByIdAndUpdate(req.params.id, careerData, {
+      returnDocument: "after",
       runValidators: true
     });
     if (!career) {

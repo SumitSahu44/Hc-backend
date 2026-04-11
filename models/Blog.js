@@ -21,8 +21,8 @@ const blogSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["Draft", "Published"],
-    default: "Draft"
+    enum: ["Draft", "Published", "draft", "published"],
+    default: "draft"
   },
   siteId: {
     type: String,

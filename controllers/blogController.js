@@ -132,7 +132,7 @@ exports.updateBlog = async (req, res) => {
           thumbnail,
           date: date || blog.date
         },
-        { new: true }
+        { returnDocument: "after" }
       );
   
       res.status(200).json({
