@@ -1,9 +1,11 @@
 const Quotation = require('../models/Quotation');
-const nodemailer = require('nodemailer');
+const { getTargetEmail } = require('../utils/emailMapper');
+const { sendEmail } = require('../utils/mailService');
 
 const submitQuotation = async (req, res) => {
     try {
         const body = req.body || {};
+        console.log(`📩 New [e-Quotation] request for site: ${body.siteId}`);
         const { siteId, traderName, businessName, businessAddress, gstNo, mobileNo, email, quotationType, particulars } = body;
         const file = req.file;
 
@@ -11,8 +13,8 @@ const submitQuotation = async (req, res) => {
             return res.status(400).json({ message: "siteId is missing!" });
         }
 
-        // Domain based target email mapping (Testing purpose hardcoded)
-        const targetEmail = "sumitofficial444@gmail.com";
+        // Dynamic Email Routing
+        const targetEmail = getTargetEmail(siteId, 'equotation');
 
         const newQuotation = new Quotation({
             siteId,
@@ -29,25 +31,12 @@ const submitQuotation = async (req, res) => {
 
         await newQuotation.save();
 
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: process.env.EMAIL_USER, // sumitkumarsahu141@gmail.com
-                pass: process.env.EMAIL_PASS
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
-
         const mailOptions = {
             from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
             to: targetEmail,
-            subject: `New Quotation Request | ${businessName} | ${siteId}`,
+            subject: `New e-Quotation Request | ${businessName} | ${siteId}`,
             html: `
-                <h2>New Quotation Request Received</h2>
+                <h2>New e-Quotation Request Received</h2>
                 <p><strong>Source Website:</strong> ${siteId}</p>
                 <hr/>
                 <p><strong>Trader Name:</strong> ${traderName}</p>
@@ -66,10 +55,8 @@ const submitQuotation = async (req, res) => {
             }] : []
         };
 
-        // Send email in background to avoid long waiting time for the user (Thoda fast krne ke liye)
-        transporter.sendMail(mailOptions)
-            .then(() => console.log("Email Notification Sent Successfully!"))
-            .catch((emailError) => console.error("Email Error:", emailError.message));
+        // Send email in background
+        sendEmail(mailOptions).catch((emailError) => console.error("Email Error:", emailError.message));
 
         res.status(200).json({
             success: true,

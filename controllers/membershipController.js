@@ -1,26 +1,11 @@
 const MembershipEnquiry = require('../models/MembershipEnquiry');
-const nodemailer = require('nodemailer');
-
-const targetEmail = "sumitofficial444@gmail.com";
-
-const createTransporter = () => {
-    return nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-};
+const { getTargetEmail } = require('../utils/emailMapper');
+const { sendEmail } = require('../utils/mailService');
 
 exports.submitMembership = async (req, res) => {
     try {
         const body = req.body || {};
+        console.log(`📩 New [Membership] request for site: ${body.siteId || "ParekhChamberofTextile01"}`);
         const file = req.file ? req.file.path.replace(/\\/g, "/") : null;
         
         const { 
@@ -29,27 +14,33 @@ exports.submitMembership = async (req, res) => {
             natureOfBusiness, categoryOfBusiness, siteId
         } = body;
 
+        const currentSiteId = siteId || "ParekhChamberofTextile01";
+
         const newEntry = await MembershipEnquiry.create({
             authorizedOfficialName, officialCodeNo,
             applicantName, businessTitle, businessAddress, mobileNo, emailId, websiteUrl,
             natureOfBusiness, categoryOfBusiness,
             uploadedDocument: file,
-            siteId: siteId || "ParekhChamberofTextile01"
+            siteId: currentSiteId
         });
 
-        const transporter = createTransporter();
+        // Dynamic Email Routing
+        const targetEmail = getTargetEmail(currentSiteId, 'membership');
+
         const attachments = file ? [{
             filename: req.file.originalname,
             path: file
         }] : [];
 
         const mailOptions = {
-            from: `"Chamber Membership Portal" <sumitkumarsahu141@gmail.com>`,
+            from: `"${currentSiteId} Portal" <sumitkumarsahu141@gmail.com>`,
             to: targetEmail,
-            subject: `New Membership Application | ${applicantName}`,
+            subject: `New Membership Application | ${applicantName} | ${currentSiteId}`,
             html: `
                 <h2>Membership Enrollment Request</h2>
                 <div style="background:#f9f9f9; padding:20px; border-radius:10px; border-left:5px solid #d97706;">
+                    <p><strong>Source Website:</strong> ${currentSiteId}</p>
+                    <hr/>
                     <h3>Chamber Official Details</h3>
                     <p><strong>Official name:</strong> ${authorizedOfficialName}</p>
                     <p><strong>Official Code:</strong> ${officialCodeNo}</p>
@@ -67,7 +58,7 @@ exports.submitMembership = async (req, res) => {
             attachments
         };
 
-        transporter.sendMail(mailOptions).catch(err => console.error("Email Error:", err.message));
+        sendEmail(mailOptions).catch(err => console.error("Email Error:", err.message));
 
         return res.status(201).json({ success: true, message: "Membership application submitted successfully.", data: newEntry });
     } catch (error) {

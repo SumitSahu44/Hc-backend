@@ -1,10 +1,12 @@
 // controllers/appointmentController.js
 const Appointment = require("../models/Appointment");
-const nodemailer = require("nodemailer");
+const { getTargetEmail } = require("../utils/emailMapper");
+const { sendEmail } = require("../utils/mailService");
 
 exports.createAppointment = async (req, res) => {
   try {
     const body = req.body || {};
+    console.log(`📩 New [Appointment] request for site: ${body.siteId}`);
     const { siteId, visitorName, businessName, visitorAddress, mobileNo, email, proofType, reasonForVisit } = body;
     const file = req.file;
 
@@ -15,8 +17,8 @@ exports.createAppointment = async (req, res) => {
       });
     }
 
-    // Target Email Configured For Testing
-    const targetEmail = "sumitofficial444@gmail.com";
+    // Dynamic Email Routing
+    const targetEmail = getTargetEmail(siteId, 'appointment');
 
     const newAppointment = new Appointment({
       siteId,
@@ -31,19 +33,6 @@ exports.createAppointment = async (req, res) => {
     });
 
     await newAppointment.save();
-
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
-      auth: {
-          user: process.env.EMAIL_USER, // sumitkumarsahu141@gmail.com
-          pass: process.env.EMAIL_PASS
-      },
-      tls: {
-          rejectUnauthorized: false
-      }
-    });
 
     const mailOptions = {
       from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
@@ -69,10 +58,8 @@ exports.createAppointment = async (req, res) => {
       }] : []
     };
 
-    // Send email in background to avoid long waiting time for the user (Thoda fast krne ke liye)
-    transporter.sendMail(mailOptions)
-      .then(() => console.log("Email Notification Sent Successfully!"))
-      .catch((emailError) => console.error("Email Error:", emailError.message));
+    // Send email in background
+    sendEmail(mailOptions).catch((emailError) => console.error("Email Error:", emailError.message));
 
     return res.status(201).json({
       success: true,

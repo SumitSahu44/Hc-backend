@@ -1,9 +1,11 @@
 const Auction = require('../models/Auction');
-const nodemailer = require('nodemailer');
+const { getTargetEmail } = require('../utils/emailMapper');
+const { sendEmail } = require('../utils/mailService');
 
 const submitAuction = async (req, res) => {
     try {
         const body = req.body || {};
+        console.log(`📩 New [e-Auction] request for site: ${body.siteId}`);
         const { siteId, participantName, legalBusinessName, businessAddress, gstNo, mobileNo, email } = body;
         const file = req.file;
 
@@ -11,8 +13,8 @@ const submitAuction = async (req, res) => {
             return res.status(400).json({ message: "siteId is missing!" });
         }
 
-        // Target Email Configured For Testing
-        const targetEmail = "sumitofficial444@gmail.com";
+        // Dynamic Email Routing
+        const targetEmail = getTargetEmail(siteId, 'eauction');
 
         const newAuction = new Auction({
             siteId,
@@ -26,19 +28,6 @@ const submitAuction = async (req, res) => {
         });
 
         await newAuction.save();
-
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: process.env.EMAIL_USER, // sumitkumarsahu141@gmail.com
-                pass: process.env.EMAIL_PASS
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
 
         const mailOptions = {
             from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
@@ -63,10 +52,8 @@ const submitAuction = async (req, res) => {
             }] : []
         };
 
-        // Send email in background to avoid long waiting time for the user (Thoda fast krne ke liye)
-        transporter.sendMail(mailOptions)
-            .then(() => console.log("Email Notification Sent Successfully!"))
-            .catch((emailError) => console.error("Email Error:", emailError.message));
+        // Send email in background
+        sendEmail(mailOptions).catch((emailError) => console.error("Email Error:", emailError.message));
 
         res.status(200).json({
             success: true,
