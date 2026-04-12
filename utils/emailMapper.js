@@ -34,6 +34,12 @@ const emailMappings = {
     'eauction': 'services@parekhfabrics.com',
     'appointment': 'appointment@parekhfabrics.com',
   },
+  'ParekhSilk07': {
+    'trade-enquiry': 'trade-enquiry@parekhsilk.com',
+    'equotation': 'trade-enquiry@parekhsilk.com',
+    'eauction': 'services@parekhsilk.com',
+    'appointment': 'appointment@parekhsilk.com',
+  },
   // Placeholders for future websites
 };
 
