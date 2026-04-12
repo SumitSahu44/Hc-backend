@@ -40,6 +40,14 @@ const emailMappings = {
     'eauction': 'services@parekhsilk.com',
     'appointment': 'appointment@parekhsilk.com',
   },
+  'ParekheTradeMarket02': {
+    'trade-enquiry': 'trade-enquiry@parekhtrade.com',
+    'equotation': 'trade-enquiry@parekhtrade.com',
+    'eauction': 'services@parekhtrade.com',
+    'appointment': 'appointment@parekhtrade.com',
+    'buyer': 'e-trade@parekhtrade.com',
+    'seller': 'e-trade@parekhtrade.com',
+  },
   // Placeholders for future websites
 };
 

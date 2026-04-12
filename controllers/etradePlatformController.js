@@ -1,8 +1,4 @@
-const EtradeBuyer = require('../models/EtradeBuyer');
-const EtradeSeller = require('../models/EtradeSeller');
-const nodemailer = require('nodemailer');
-
-const targetEmail = "sumitofficial444@gmail.com";
+const { getTargetEmail } = require('../utils/emailMapper');
 
 // Setup mailer - reuse environment variables like other controllers
 const createTransporter = () => {
@@ -24,9 +20,9 @@ exports.submitBuyerPlatform = async (req, res) => {
     try {
         const body = req.body || {};
         const files = req.files || []; // from multer's .array()
-        
-        const { 
-            authorizedPersonId, 
+
+        const {
+            authorizedPersonId,
             buyerName, businessTitle, businessAddress, mobileNo, emailId, websiteUrl,
             natureOfBusiness, categoryOfBusiness, chamberMembership,
             textileItemsToBuy, itemDescription, requiredQuantity, tentativeRate, tentativeBudget,
@@ -57,11 +53,11 @@ exports.submitBuyerPlatform = async (req, res) => {
         }));
 
         const mailOptions = {
-            from: `"Etrade Buyer Portal" <sumitkumarsahu141@gmail.com>`,
-            to: targetEmail,
-            subject: `New Etrade Buyer Registration | ${buyerName}`,
+            from: `"etrade Buyer Portal" <${process.env.EMAIL_USER}>`,
+            to: getTargetEmail(siteId, 'buyer'),
+            subject: `New etrade Buyer Registration | ${buyerName}`,
             html: `
-                <h2>New Etrade Buyer Application</h2>
+                <h2>New etrade Buyer Application</h2>
                 <p><strong>Admin Validator:</strong> ${newBuyer.authorizedPerson ? newBuyer.authorizedPerson.name + ' (' + newBuyer.authorizedPerson.code + ')' : 'N/A (Orphaned Record)'}</p>
                 <hr/>
                 <p><strong>Buyer Name:</strong> ${buyerName}</p>
@@ -93,13 +89,13 @@ exports.submitSellerPlatform = async (req, res) => {
     try {
         const body = req.body || {};
         const files = req.files || []; // from multer's .array()
-        
-        const { 
-            authorizedPersonId, 
+
+        const {
+            authorizedPersonId,
             sellerName, businessName, businessAddress, mobileNo, emailId, websiteUrl,
             natureOfBusiness, categoryOfBusiness, chamberMembership,
             textileItemsToSell, itemDescription, totalQuantity, expectedRate,
-            siteId 
+            siteId
         } = body;
 
         if (!authorizedPersonId) {
@@ -125,11 +121,11 @@ exports.submitSellerPlatform = async (req, res) => {
         }));
 
         const mailOptions = {
-            from: `"Etrade Seller Portal" <sumitkumarsahu141@gmail.com>`,
-            to: targetEmail,
-            subject: `New Etrade Seller Registration | ${sellerName}`,
+            from: `"etrade Seller Portal" <${process.env.EMAIL_USER}>`,
+            to: getTargetEmail(siteId, 'seller'),
+            subject: `New etrade Seller Registration | ${sellerName}`,
             html: `
-                <h2>New Etrade Seller Application</h2>
+                <h2>New etrade Seller Application</h2>
                 <p><strong>Admin Validator:</strong> ${newSeller.authorizedPerson ? newSeller.authorizedPerson.name + ' (' + newSeller.authorizedPerson.code + ')' : 'N/A (Orphaned Record)'}</p>
                 <hr/>
                 <p><strong>Seller Name:</strong> ${sellerName}</p>
