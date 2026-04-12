@@ -28,6 +28,12 @@ const emailMappings = {
     'eauction': 'services@parekhrayon.com',
     'appointment': 'appointment@parekhrayon.com',
   },
+  'ParekhFabrics06': {
+    'trade-enquiry': 'trade-enquiry@parekhfabrics.com',
+    'equotation': 'trade-enquiry@parekhfabrics.com',
+    'eauction': 'services@parekhfabrics.com',
+    'appointment': 'appointment@parekhfabrics.com',
+  },
   // Placeholders for future websites
 };
 
