@@ -24,7 +24,7 @@ const mediaEventSchema = new mongoose.Schema({
     required: true,
     enum: [
       "ParekhChamberofTextile01",
-      "ParekhETradeMarket02",
+      "ParekheTradeMarket02",
       "ParekhSouthernPolyfabrics03",
       "ParekhLinen04",
       "ParekhRayon05",
