@@ -10,10 +10,13 @@ const emailMappings = {
     'equotation': 'trade-enquiry@parekhchamber.com',
     'trade-enquiry': 'trade-enquiry@parekhchamber.com',
   },
+  'ParekhSouthernPolyfabrics03': {
+    'trade-enquiry': 'trade-enquiry@parekhpolyfabrics.com',
+    'equotation': 'trade-enquiry@parekhpolyfabrics.com',
+    'eauction': 'services@parekhpolyfabrics.com',
+    'appointment': 'appointment@parekhpolyfabrics.com',
+  },
   // Placeholders for future websites
-  'ParekhETradeMarket02': {
-    'trade-enquiry': 'trade-enquiry@parekhetrade.com', // Example
-  }
 };
 
 const DEFAULT_EMAIL = 'sumitofficial444@gmail.com';
