@@ -1,3 +1,6 @@
+const EtradeBuyer = require('../models/EtradeBuyer');
+const EtradeSeller = require('../models/EtradeSeller');
+const nodemailer = require('nodemailer');
 const { getTargetEmail } = require('../utils/emailMapper');
 
 // Setup mailer - reuse environment variables like other controllers
