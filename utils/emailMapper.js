@@ -16,6 +16,12 @@ const emailMappings = {
     'eauction': 'services@parekhpolyfabrics.com',
     'appointment': 'appointment@parekhpolyfabrics.com',
   },
+  'ParekhLinen04': {
+    'trade-enquiry': 'trade-enquiry@parekhlinen.com',
+    'equotation': 'trade-enquiry@parekhlinen.com',
+    'eauction': 'services@parekhlinen.com',
+    'appointment': 'appointment@parekhlinen.com',
+  },
   // Placeholders for future websites
 };
 
