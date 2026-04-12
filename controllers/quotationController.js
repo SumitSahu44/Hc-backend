@@ -32,7 +32,7 @@ const submitQuotation = async (req, res) => {
         await newQuotation.save();
 
         const mailOptions = {
-            from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
+            from: `"${siteId} Portal" <${process.env.EMAIL_USER}>`,
             to: targetEmail,
             subject: `New e-Quotation Request | ${businessName} | ${siteId}`,
             html: `

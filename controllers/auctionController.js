@@ -30,7 +30,7 @@ const submitAuction = async (req, res) => {
         await newAuction.save();
 
         const mailOptions = {
-            from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
+            from: `"${siteId} Portal" <${process.env.EMAIL_USER}>`,
             to: targetEmail,
             subject: `New e-Auction Participation | ${legalBusinessName} | ${siteId}`,
             html: `

@@ -33,7 +33,7 @@ exports.submitMembership = async (req, res) => {
         }] : [];
 
         const mailOptions = {
-            from: `"${currentSiteId} Portal" <sumitkumarsahu141@gmail.com>`,
+            from: `"${currentSiteId} Portal" <${process.env.EMAIL_USER}>`,
             to: targetEmail,
             subject: `New Membership Application | ${applicantName} | ${currentSiteId}`,
             html: `

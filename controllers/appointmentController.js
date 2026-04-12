@@ -35,7 +35,7 @@ exports.createAppointment = async (req, res) => {
     await newAppointment.save();
 
     const mailOptions = {
-      from: `"${siteId} Portal" <sumitkumarsahu141@gmail.com>`,
+      from: `"${siteId} Portal" <${process.env.EMAIL_USER}>`,
       to: targetEmail,
       subject: `New Visit Appointment | ${visitorName} | ${siteId}`,
       html: `
