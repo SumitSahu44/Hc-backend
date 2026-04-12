@@ -22,6 +22,12 @@ const emailMappings = {
     'eauction': 'services@parekhlinen.com',
     'appointment': 'appointment@parekhlinen.com',
   },
+  'ParekhRayon05': {
+    'trade-enquiry': 'trade-enquiry@parekhrayon.com',
+    'equotation': 'trade-enquiry@parekhrayon.com',
+    'eauction': 'services@parekhrayon.com',
+    'appointment': 'appointment@parekhrayon.com',
+  },
   // Placeholders for future websites
 };
 
