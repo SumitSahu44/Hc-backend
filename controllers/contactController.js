@@ -37,6 +37,18 @@ exports.createContact = async (req, res) => {
     });
   }
 };
+exports.deleteContact = async (req, res) => {
+    try {
+        const contact = await Contact.findByIdAndDelete(req.params.id);
+        if (!contact) {
+            return res.status(404).json({ success: false, message: "Contact entry not found" });
+        }
+        res.status(200).json({ success: true, message: "Contact entry deleted successfully" });
+    } catch (error) {
+        console.error("Delete Contact Error:", error);
+        res.status(500).json({ success: false, message: "Internal server error." });
+    }
+};
 
 exports.getContacts = async (req, res) => {
   try {

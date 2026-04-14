@@ -17,5 +17,6 @@ const etradePlatformController = require('../controllers/etradePlatformControlle
 router.post('/buyer', upload.array('kycDocuments'), etradePlatformController.submitBuyerPlatform);
 router.post('/seller', upload.array('kycDocuments'), etradePlatformController.submitSellerPlatform);
 router.get('/submissions', etradePlatformController.getPlatformSubmissions);
+router.delete('/submissions/:id', etradePlatformController.deleteSubmission);
 
 module.exports = router;

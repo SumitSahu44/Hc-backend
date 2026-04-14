@@ -83,5 +83,18 @@ const getQuotations = async (req, res) => {
     }
 };
 
-module.exports = { submitQuotation, getQuotations };
+const deleteQuotation = async (req, res) => {
+    try {
+        const quotation = await Quotation.findByIdAndDelete(req.params.id);
+        if (!quotation) {
+            return res.status(404).json({ success: false, message: "Quotation not found" });
+        }
+        res.status(200).json({ success: true, message: "Quotation deleted successfully" });
+    } catch (error) {
+        console.error("Delete Quotation Error:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
+module.exports = { submitQuotation, getQuotations, deleteQuotation };
 

@@ -78,3 +78,16 @@ exports.getMemberships = async (req, res) => {
         return res.status(500).json({ success: false, message: "Internal server error." });
     }
 };
+
+exports.deleteMembershipEnquiry = async (req, res) => {
+    try {
+        const enquiry = await MembershipEnquiry.findByIdAndDelete(req.params.id);
+        if (!enquiry) {
+            return res.status(404).json({ success: false, message: "Membership enquiry not found" });
+        }
+        res.status(200).json({ success: true, message: "Membership enquiry deleted successfully" });
+    } catch (error) {
+        console.error("Delete Membership Error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error." });
+    }
+};

@@ -1,6 +1,6 @@
 // routes/tradeEnquiryRoutes.js
 const router = require("express").Router();
-const { submitTradeEnquiry, getTradeEnquiries } = require("../controllers/tradeEnquiryController");
+const { submitTradeEnquiry, getTradeEnquiries, deleteTradeEnquiry } = require("../controllers/tradeEnquiryController");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
@@ -23,5 +23,6 @@ const upload = multer({ storage: storage });
 
 router.post("/", upload.single('gstCertificate'), submitTradeEnquiry);
 router.get("/", getTradeEnquiries);
+router.delete("/:id", deleteTradeEnquiry);
 
 module.exports = router;

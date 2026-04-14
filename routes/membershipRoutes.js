@@ -24,5 +24,6 @@ const upload = multer({ storage: storage });
 
 router.post('/', upload.single('document'), membershipController.submitMembership);
 router.get('/', membershipController.getMemberships);
+router.delete('/:id', membershipController.deleteMembershipEnquiry);
 
 module.exports = router;

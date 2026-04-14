@@ -80,5 +80,18 @@ const getAuctions = async (req, res) => {
     }
 };
 
-module.exports = { submitAuction, getAuctions };
+const deleteAuction = async (req, res) => {
+    try {
+        const auction = await Auction.findByIdAndDelete(req.params.id);
+        if (!auction) {
+            return res.status(404).json({ success: false, message: "Auction entry not found" });
+        }
+        res.status(200).json({ success: true, message: "Auction entry deleted successfully" });
+    } catch (error) {
+        console.error("Delete Auction Error:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
+module.exports = { submitAuction, getAuctions, deleteAuction };
 

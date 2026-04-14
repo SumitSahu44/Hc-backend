@@ -1,6 +1,6 @@
 // routes/appointmentRoutes.js
 const router = require("express").Router();
-const { createAppointment, getAppointments } = require("../controllers/appointmentController");
+const { createAppointment, getAppointments, deleteAppointment } = require("../controllers/appointmentController");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
@@ -23,5 +23,6 @@ const upload = multer({ storage: storage });
 
 router.post("/", upload.single('proofFile'), createAppointment);
 router.get("/", getAppointments);
+router.delete("/:id", deleteAppointment);
 
 module.exports = router;

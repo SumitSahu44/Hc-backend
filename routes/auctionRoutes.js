@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { submitAuction, getAuctions } = require("../controllers/auctionController");
+const { submitAuction, getAuctions, deleteAuction } = require("../controllers/auctionController");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
@@ -22,5 +22,6 @@ const upload = multer({ storage: storage });
 
 router.post("/", upload.single('gstCertificate'), submitAuction);
 router.get("/", getAuctions);
+router.delete("/:id", deleteAuction);
 
 module.exports = router;

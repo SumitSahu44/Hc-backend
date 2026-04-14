@@ -32,6 +32,11 @@ exports.addCareer = async (req, res) => {
       careerData.email = careerData.contactEmail;
     }
 
+    // Map requirements to experience for compatibility with Admin Dashboard
+    if (careerData.requirements && !careerData.experience) {
+      careerData.experience = careerData.requirements;
+    }
+
     const newCareer = new Career(careerData);
     await newCareer.save();
     res.status(201).json({
@@ -54,6 +59,11 @@ exports.updateCareer = async (req, res) => {
     const careerData = { ...req.body };
     if (careerData.contactEmail && !careerData.email) {
       careerData.email = careerData.contactEmail;
+    }
+
+    // Map requirements to experience for compatibility with Admin Dashboard
+    if (careerData.requirements && !careerData.experience) {
+      careerData.experience = careerData.requirements;
     }
 
     const career = await Career.findByIdAndUpdate(req.params.id, careerData, {

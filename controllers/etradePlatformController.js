@@ -172,3 +172,20 @@ exports.getPlatformSubmissions = async (req, res) => {
         return res.status(500).json({ success: false, message: "Internal server error." });
     }
 };
+
+exports.deleteSubmission = async (req, res) => {
+    try {
+        const { id } = req.params;
+        let deleted = await EtradeBuyer.findByIdAndDelete(id);
+        if (!deleted) {
+            deleted = await EtradeSeller.findByIdAndDelete(id);
+        }
+        if (!deleted) {
+            return res.status(404).json({ success: false, message: "Submission not found" });
+        }
+        return res.status(200).json({ success: true, message: "Submission deleted successfully" });
+    } catch (error) {
+        console.error("Delete Submission Error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error." });
+    }
+};

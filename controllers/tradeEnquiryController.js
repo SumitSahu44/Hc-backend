@@ -90,4 +90,17 @@ const getTradeEnquiries = async (req, res) => {
     }
 };
 
-module.exports = { submitTradeEnquiry, getTradeEnquiries };
+const deleteTradeEnquiry = async (req, res) => {
+    try {
+        const enquiry = await TradeEnquiry.findByIdAndDelete(req.params.id);
+        if (!enquiry) {
+            return res.status(404).json({ success: false, message: "Enquiry not found" });
+        }
+        res.status(200).json({ success: true, message: "Enquiry deleted successfully" });
+    } catch (error) {
+        console.error("Delete Trade Enquiry Error:", error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+};
+
+module.exports = { submitTradeEnquiry, getTradeEnquiries, deleteTradeEnquiry };
