@@ -30,6 +30,8 @@ const storage = new CloudinaryStorage({
     return {
       folder: `HC_Ecosystem/${cleanSiteId}/${entityType}`,
       resource_type: 'auto', // Important for videos and pdfs
+      type: 'upload', // Ensure the file is public
+      access_mode: 'public', // Ensure public access
       public_id: `${Date.now()}-${file.originalname.split('.')[0].replace(/[^a-z0-9_-]/gi, '_')}`
     };
   },
