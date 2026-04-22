@@ -46,6 +46,7 @@ const submitQuotation = async (req, res) => {
                 <p><strong>Type:</strong> ${quotationType}</p>
                 <p><strong>Address:</strong> ${businessAddress}</p>
                 <p><strong>Particulars:</strong> ${particulars}</p>
+                ${file ? `<p><strong>Uploaded Document:</strong> <a href="${file.path}">View Attachment</a></p>` : ''}
                 <br/>
                 <p><i>Data has been saved to MongoDB.</i></p>
             `,

@@ -42,7 +42,7 @@ const submitAuction = async (req, res) => {
                 <p><strong>GST No:</strong> ${gstNo}</p>
                 <p><strong>Contact:</strong> ${mobileNo} | ${email}</p>
                 <p><strong>Address:</strong> ${businessAddress}</p>
-                <br/>
+                ${file ? `<p><strong>GST Certificate:</strong> <a href="${file.path}">View Attachment</a></p>` : ''}
                 <br/>
                 <p><i>Data has been saved to MongoDB.</i></p>
             `,

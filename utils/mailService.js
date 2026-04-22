@@ -22,11 +22,17 @@ const createTransporter = () => {
 exports.sendEmail = async (mailOptions) => {
   try {
     const transporter = createTransporter();
+    console.log(`📤 Attempting to send email to: ${mailOptions.to} | Subject: ${mailOptions.subject}`);
     const info = await transporter.sendMail(mailOptions);
     console.log("✅ Email Notification Sent Successfully! Message ID:", info.messageId);
     return info;
   } catch (error) {
-    console.error("❌ Email Error:", error.message);
+    console.error("❌ Email Error Details:", {
+      message: error.message,
+      code: error.code,
+      responseCode: error.responseCode,
+      command: error.command
+    });
     throw error;
   }
 };
