@@ -48,6 +48,7 @@ exports.createAppointment = async (req, res) => {
           <p><strong>Address:</strong> ${visitorAddress}</p>
           <p><strong>Proof Type:</strong> ${proofType}</p>
           <p><strong>Reason for Visit:</strong> ${reasonForVisit}</p>
+          ${file ? `<p><strong>ID Proof:</strong> <a href="${file.path}">View Attachment</a></p>` : ''}
           <br/>
           <br/>
           <p><i>Data has been saved to MongoDB.</i></p>

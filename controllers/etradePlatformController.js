@@ -1,23 +1,7 @@
 const EtradeBuyer = require('../models/EtradeBuyer');
 const EtradeSeller = require('../models/EtradeSeller');
-const nodemailer = require('nodemailer');
 const { getTargetEmail } = require('../utils/emailMapper');
-
-// Setup mailer - reuse environment variables like other controllers
-const createTransporter = () => {
-    return nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-};
+const { sendEmail } = require('../utils/mailService');
 
 exports.submitBuyerPlatform = async (req, res) => {
     try {

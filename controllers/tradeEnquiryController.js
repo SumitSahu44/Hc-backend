@@ -51,6 +51,7 @@ const submitTradeEnquiry = async (req, res) => {
                 <p><strong>Contact:</strong> ${mobileNo} | ${email}</p>
                 <p><strong>Type:</strong> ${enquiryType}</p>
                 <p><strong>Address:</strong> ${businessAddress}</p>
+                ${file ? `<p><strong>Uploaded Document:</strong> <a href="${file.path}">View Attachment</a></p>` : ''}
                 <br/>
                 <br/>
                 <p><i>Data has been saved to MongoDB Compass.</i></p>

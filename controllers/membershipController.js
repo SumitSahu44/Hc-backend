@@ -53,6 +53,7 @@ exports.submitMembership = async (req, res) => {
                     <p><strong>Website:</strong> ${websiteUrl || 'N/A'}</p>
                     <p><strong>Nature of Bus:</strong> ${natureOfBusiness}</p>
                     <p><strong>Category:</strong> ${categoryOfBusiness}</p>
+                    ${file ? `<p><strong>Uploaded Document:</strong> <a href="${file}">View Attachment</a></p>` : ''}
                 </div>
             `,
             attachments
