@@ -4,7 +4,7 @@
  */
 const emailMappings = {
   'ParekhChamberofTextile01': {
-    'appointment': 'sumitofficial444@gmail.com',
+    'appointment': 'appointment@parekhchamber.com',
     'membership': 'membership@parekhchamber.com',
     'eauction': 'services@parekhchamber.com',
     'equotation': 'trade-enquiry@parekhchamber.com',
