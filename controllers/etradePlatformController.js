@@ -49,10 +49,9 @@ exports.submitBuyerPlatform = async (req, res) => {
         // Populate to get Authorized Person details for email
         await newBuyer.populate('authorizedPerson');
 
-        const transporter = createTransporter();
         const attachments = files.map(file => ({
             filename: file.originalname,
-            content: require('fs').readFileSync(file.path)
+            path: file.path
         }));
 
         const mailOptions = {
@@ -117,10 +116,9 @@ exports.submitSellerPlatform = async (req, res) => {
 
         await newSeller.populate('authorizedPerson');
 
-        const transporter = createTransporter();
         const attachments = files.map(file => ({
             filename: file.originalname,
-            content: require('fs').readFileSync(file.path)
+            path: file.path
         }));
 
         const mailOptions = {

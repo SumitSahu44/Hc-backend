@@ -37,7 +37,7 @@ exports.addBlog = async (req, res) => {
       });
     }
 
-    const thumbnail = req.file.path.replace(/\\/g, "/"); // Normalize path for all OS
+    const thumbnail = req.file.path;
 
     const newBlog = new Blog({
       title,
@@ -56,10 +56,6 @@ exports.addBlog = async (req, res) => {
       data: newBlog
     });
   } catch (error) {
-    // If error, delete the uploaded file
-    if (req.file) {
-      fs.unlinkSync(req.file.path);
-    }
     res.status(500).json({
       success: false,
       message: error.message
@@ -79,10 +75,7 @@ exports.deleteBlog = async (req, res) => {
       });
     }
 
-    // Delete the image file
-    if (blog.thumbnail && fs.existsSync(blog.thumbnail)) {
-      fs.unlinkSync(blog.thumbnail);
-    }
+    // Delete logic for Cloudinary could be added here
 
     await Blog.findByIdAndDelete(req.params.id);
 
@@ -114,11 +107,7 @@ exports.updateBlog = async (req, res) => {
   
       let thumbnail = blog.thumbnail;
       if (req.file) {
-        // Delete old thumbnail
-        if (blog.thumbnail && fs.existsSync(blog.thumbnail)) {
-          fs.unlinkSync(blog.thumbnail);
-        }
-        thumbnail = req.file.path.replace(/\\/g, "/");
+        thumbnail = req.file.path;
       }
   
       const updatedBlog = await Blog.findByIdAndUpdate(
@@ -140,9 +129,6 @@ exports.updateBlog = async (req, res) => {
         data: updatedBlog
       });
     } catch (error) {
-      if (req.file) {
-        fs.unlinkSync(req.file.path);
-      }
       res.status(500).json({
         success: false,
         message: error.message

@@ -36,7 +36,7 @@ exports.addMediaEvent = async (req, res) => {
       });
     }
 
-    const image = req.file.path.replace(/\\/g, "/");
+    const image = req.file.path;
 
     const newEvent = new MediaEvent({
       title,
@@ -53,9 +53,6 @@ exports.addMediaEvent = async (req, res) => {
       data: newEvent
     });
   } catch (error) {
-    if (req.file) {
-      fs.unlinkSync(req.file.path);
-    }
     res.status(500).json({
       success: false,
       message: error.message
@@ -79,11 +76,7 @@ exports.updateMediaEvent = async (req, res) => {
 
     let image = event.image;
     if (req.file) {
-      // Delete old image
-      if (event.image && fs.existsSync(event.image)) {
-        fs.unlinkSync(event.image);
-      }
-      image = req.file.path.replace(/\\/g, "/");
+      image = req.file.path;
     }
 
     const updatedEvent = await MediaEvent.findByIdAndUpdate(
@@ -98,7 +91,7 @@ exports.updateMediaEvent = async (req, res) => {
     });
   } catch (error) {
     if (req.file) {
-      fs.unlinkSync(req.file.path);
+      // Cloudinary handles asset lifecycle separately
     }
     res.status(500).json({
       success: false,
@@ -119,9 +112,7 @@ exports.deleteMediaEvent = async (req, res) => {
       });
     }
 
-    if (event.image && fs.existsSync(event.image)) {
-      fs.unlinkSync(event.image);
-    }
+    // Delete logic for Cloudinary could be added here
 
     await MediaEvent.findByIdAndDelete(req.params.id);
 

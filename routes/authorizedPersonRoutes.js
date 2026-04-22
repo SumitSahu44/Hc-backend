@@ -2,15 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 
-// Reusing multer config if exist or define simple one
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-${file.originalname}`);
-    }
-});
+const { storage } = require("../config/cloudinary");
 const upload = multer({ storage });
 
 const authorizedPersonController = require('../controllers/authorizedPersonController');

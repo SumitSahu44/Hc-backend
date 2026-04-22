@@ -1,5 +1,5 @@
-const fs = require('fs');
 const csvParser = require('csv-parser');
+const axios = require('axios');
 const AuthorizedPerson = require('../models/AuthorizedPerson');
 
 exports.addAuthorizedPerson = async (req, res) => {
@@ -54,16 +54,25 @@ exports.bulkUploadAuthorizedPersons = async (req, res) => {
       return res.status(400).json({ success: false, message: "Please upload a CSV file." });
     }
 
+    const response = await axios({
+      method: "get",
+      url: req.file.path,
+      responseType: "stream"
+    });
+
     const results = [];
-    fs.createReadStream(req.file.path)
+    response.data
       .pipe(csvParser())
       .on('data', (data) => results.push(data))
+      .on('error', (error) => {
+        console.error("CSV Parse Error:", error);
+        return res.status(500).json({ success: false, message: "Error parsing CSV file." });
+      })
       .on('end', async () => {
         let addedCount = 0;
         let skippedCount = 0;
 
         for (const row of results) {
-          // Assuming CSV headers are exactly 'name' and 'code'
           const name = row.name || row.Name || row.NAME;
           const code = row.code || row.Code || row.CODE;
 
@@ -80,8 +89,7 @@ exports.bulkUploadAuthorizedPersons = async (req, res) => {
           }
         }
 
-        fs.unlinkSync(req.file.path); // remove the file after parsing
-
+        // Cloudinary file cleanup is optional/handled via dashboard
         return res.status(200).json({
           success: true,
           message: `Bulk upload completed. Added: ${addedCount}, Skipped/Duplicates: ${skippedCount}`

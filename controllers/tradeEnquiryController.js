@@ -57,7 +57,7 @@ const submitTradeEnquiry = async (req, res) => {
             `,
             attachments: file ? [{ 
                 filename: file.originalname, 
-                content: require('fs').readFileSync(file.path) 
+                path: file.path 
             }] : []
         };
 

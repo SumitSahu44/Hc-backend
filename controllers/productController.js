@@ -21,7 +21,6 @@ exports.addProduct = async (req, res) => {
     const image = req.file ? req.file.path.replace(/\\/g, "/") : null;
 
     if (!title || !category || !siteId || !image) {
-      if (image) fs.unlinkSync(image); // Delete uploaded file if validation fails
       return res.status(400).json({ success: false, message: "All fields and image are required." });
     }
 
@@ -35,7 +34,6 @@ exports.addProduct = async (req, res) => {
     res.status(201).json({ success: true, data: newProduct });
   } catch (error) {
     console.error("Add Product Error:", error);
-    if (req.file) fs.unlinkSync(req.file.path);
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
@@ -49,10 +47,7 @@ exports.deleteProduct = async (req, res) => {
       return res.status(404).json({ success: false, message: "Product not found." });
     }
 
-    // Delete image file from server
-    if (product.image && fs.existsSync(product.image)) {
-      fs.unlinkSync(product.image);
-    }
+    // Delete logic for Cloudinary could be added here if needed
 
     await Product.findByIdAndDelete(id);
     res.status(200).json({ success: true, message: "Product deleted successfully." });
@@ -69,17 +64,13 @@ exports.updateProduct = async (req, res) => {
     const product = await Product.findById(id);
 
     if (!product) {
-      if (req.file) fs.unlinkSync(req.file.path);
+      // Cloudinary handles asset lifecycle separately
       return res.status(404).json({ success: false, message: "Product not found." });
     }
 
     let image = product.image;
     if (req.file) {
-      // Delete old image
-      if (product.image && fs.existsSync(product.image)) {
-        fs.unlinkSync(product.image);
-      }
-      image = req.file.path.replace(/\\/g, "/");
+      image = req.file.path;
     }
 
     product.title = title || product.title;
@@ -92,7 +83,6 @@ exports.updateProduct = async (req, res) => {
     res.status(200).json({ success: true, message: "Product updated successfully.", data: product });
   } catch (error) {
     console.error("Update Product Error:", error);
-    if (req.file) fs.unlinkSync(req.file.path);
     res.status(500).json({ success: false, message: "Internal server error." });
   }
 };
