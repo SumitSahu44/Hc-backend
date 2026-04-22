@@ -18,6 +18,7 @@ exports.getProducts = async (req, res) => {
 exports.addProduct = async (req, res) => {
   try {
     const { title, category, siteId } = req.body;
+    console.log("DEBUG: req.file =", req.file);
     const image = req.file ? req.file.path.replace(/\\/g, "/") : null;
 
     if (!title || !category || !siteId || !image) {
