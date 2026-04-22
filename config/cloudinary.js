@@ -27,12 +27,17 @@ const storage = new CloudinaryStorage({
     else if (req.originalUrl.includes('trade-enquiry')) entityType = 'TradeEnquiries';
     else if (req.originalUrl.includes('membership')) entityType = 'Memberships';
 
+    const fileName = file.originalname.split('.')[0].replace(/[^a-z0-9_-]/gi, '_');
+    const publicId = `${Date.now()}-${fileName}`;
+
+    const extension = file.originalname.split('.').pop().toLowerCase();
+    const isPDF = extension === 'pdf';
+
     return {
       folder: `HC_Ecosystem/${cleanSiteId}/${entityType}`,
-      resource_type: 'auto', // Important for videos and pdfs
-      type: 'upload', // Ensure the file is public
-      access_mode: 'public', // Ensure public access
-      public_id: `${Date.now()}-${file.originalname.split('.')[0].replace(/[^a-z0-9_-]/gi, '_')}`
+      resource_type: isPDF ? 'image' : 'auto', // PDFs are best handled as 'image' resource_type in Cloudinary for viewing
+      public_id: publicId,
+      format: isPDF ? 'pdf' : undefined
     };
   },
 });
