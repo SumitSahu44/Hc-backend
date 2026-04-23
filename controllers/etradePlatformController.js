@@ -43,21 +43,35 @@ exports.submitBuyerPlatform = async (req, res) => {
             to: getTargetEmail(siteId, 'buyer'),
             subject: `New etrade Buyer Registration | ${buyerName}`,
             html: `
-                <h2>New etrade Buyer Application</h2>
-                <p><strong>Admin Validator:</strong> ${newBuyer.authorizedPerson ? newBuyer.authorizedPerson.name + ' (' + newBuyer.authorizedPerson.code + ')' : 'N/A (Orphaned Record)'}</p>
-                <hr/>
-                <p><strong>Buyer Name:</strong> ${buyerName}</p>
-                <p><strong>Business Title:</strong> ${businessTitle}</p>
-                <p><strong>Address:</strong> ${businessAddress}</p>
-                <p><strong>Contact:</strong> ${mobileNo} | ${emailId}</p>
-                <p><strong>Nature of Bus:</strong> ${natureOfBusiness}</p>
-                <p><strong>Category:</strong> ${categoryOfBusiness}</p>
-                <p><strong>Chamber Mem:</strong> ${chamberMembership}</p>
-                <hr/>
-                <p><strong>Item to Buy:</strong> ${textileItemsToBuy}</p>
-                <p><strong>Description:</strong> ${itemDescription}</p>
-                <p><strong>Quantity:</strong> ${requiredQuantity}</p>
-                <p><strong>Budget:</strong> ${tentativeBudget}</p>
+                <div style="font-family: sans-serif; line-height: 1.5; color: #333;">
+                    <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New etrade Buyer Application</h2>
+                    <p><strong>Admin Validator:</strong> ${newBuyer.authorizedPerson ? newBuyer.authorizedPerson.name + ' (' + newBuyer.authorizedPerson.code + ')' : 'N/A'}</p>
+                    
+                    <h3 style="background: #f0f4f8; padding: 8px; border-radius: 4px;">Business Details</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr><td style="width: 150px; font-weight: bold;">Buyer Name:</td><td>${buyerName}</td></tr>
+                        <tr><td style="font-weight: bold;">Business Title:</td><td>${businessTitle}</td></tr>
+                        <tr><td style="font-weight: bold;">Address:</td><td>${businessAddress}</td></tr>
+                        <tr><td style="font-weight: bold;">Mobile No:</td><td>${mobileNo}</td></tr>
+                        <tr><td style="font-weight: bold;">Email ID:</td><td>${emailId}</td></tr>
+                        <tr><td style="font-weight: bold;">Website URL:</td><td>${websiteUrl || 'N/A'}</td></tr>
+                        <tr><td style="font-weight: bold;">Nature of Bus:</td><td>${natureOfBusiness}</td></tr>
+                        <tr><td style="font-weight: bold;">Category:</td><td>${categoryOfBusiness}</td></tr>
+                        <tr><td style="font-weight: bold;">Chamber Mem:</td><td>${chamberMembership || 'N/A'}</td></tr>
+                    </table>
+
+                    <h3 style="background: #f0f4f8; padding: 8px; border-radius: 4px;">Requirement Details</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr><td style="width: 150px; font-weight: bold;">Items to Buy:</td><td>${textileItemsToBuy}</td></tr>
+                        <tr><td style="font-weight: bold;">Description:</td><td>${itemDescription || 'N/A'}</td></tr>
+                        <tr><td style="font-weight: bold;">Quantity:</td><td>${requiredQuantity}</td></tr>
+                        <tr><td style="font-weight: bold;">Tentative Rate:</td><td>${tentativeRate || 'N/A'}</td></tr>
+                        <tr><td style="font-weight: bold;">Tentative Budget:</td><td>${tentativeBudget || 'N/A'}</td></tr>
+                    </table>
+                    
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+                    <p style="font-size: 12px; color: #666;">Site ID: ${siteId}</p>
+                </div>
             `,
             attachments
         };
@@ -110,20 +124,34 @@ exports.submitSellerPlatform = async (req, res) => {
             to: getTargetEmail(siteId, 'seller'),
             subject: `New etrade Seller Registration | ${sellerName}`,
             html: `
-                <h2>New etrade Seller Application</h2>
-                <p><strong>Admin Validator:</strong> ${newSeller.authorizedPerson ? newSeller.authorizedPerson.name + ' (' + newSeller.authorizedPerson.code + ')' : 'N/A (Orphaned Record)'}</p>
-                <hr/>
-                <p><strong>Seller Name:</strong> ${sellerName}</p>
-                <p><strong>Business Name:</strong> ${businessName}</p>
-                <p><strong>Address:</strong> ${businessAddress}</p>
-                <p><strong>Contact:</strong> ${mobileNo} | ${emailId}</p>
-                <p><strong>Nature of Bus:</strong> ${natureOfBusiness}</p>
-                <p><strong>Category:</strong> ${categoryOfBusiness}</p>
-                <hr/>
-                <p><strong>Item to Sell:</strong> ${textileItemsToSell}</p>
-                <p><strong>Description:</strong> ${itemDescription}</p>
-                <p><strong>Quantity:</strong> ${totalQuantity}</p>
-                <p><strong>Expected Rate:</strong> ${expectedRate}</p>
+                <div style="font-family: sans-serif; line-height: 1.5; color: #333;">
+                    <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New etrade Seller Application</h2>
+                    <p><strong>Admin Validator:</strong> ${newSeller.authorizedPerson ? newSeller.authorizedPerson.name + ' (' + newSeller.authorizedPerson.code + ')' : 'N/A'}</p>
+                    
+                    <h3 style="background: #f0f4f8; padding: 8px; border-radius: 4px;">Business Details</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr><td style="width: 150px; font-weight: bold;">Seller Name:</td><td>${sellerName}</td></tr>
+                        <tr><td style="font-weight: bold;">Business Name:</td><td>${businessName}</td></tr>
+                        <tr><td style="font-weight: bold;">Address:</td><td>${businessAddress}</td></tr>
+                        <tr><td style="font-weight: bold;">Mobile No:</td><td>${mobileNo}</td></tr>
+                        <tr><td style="font-weight: bold;">Email ID:</td><td>${emailId}</td></tr>
+                        <tr><td style="font-weight: bold;">Website URL:</td><td>${websiteUrl || 'N/A'}</td></tr>
+                        <tr><td style="font-weight: bold;">Nature of Bus:</td><td>${natureOfBusiness}</td></tr>
+                        <tr><td style="font-weight: bold;">Category:</td><td>${categoryOfBusiness}</td></tr>
+                        <tr><td style="font-weight: bold;">Chamber Mem:</td><td>${chamberMembership || 'N/A'}</td></tr>
+                    </table>
+
+                    <h3 style="background: #f0f4f8; padding: 8px; border-radius: 4px;">Stock Details</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr><td style="width: 150px; font-weight: bold;">Items to Sell:</td><td>${textileItemsToSell}</td></tr>
+                        <tr><td style="font-weight: bold;">Description:</td><td>${itemDescription || 'N/A'}</td></tr>
+                        <tr><td style="font-weight: bold;">Total Quantity:</td><td>${totalQuantity}</td></tr>
+                        <tr><td style="font-weight: bold;">Expected Rate:</td><td>${expectedRate || 'N/A'}</td></tr>
+                    </table>
+                    
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+                    <p style="font-size: 12px; color: #666;">Site ID: ${siteId}</p>
+                </div>
             `,
             attachments
         };
