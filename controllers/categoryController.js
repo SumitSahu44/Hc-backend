@@ -40,7 +40,7 @@ exports.updateCategory = async (req, res) => {
     const updatedCategory = await Category.findByIdAndUpdate(
       id,
       { name, siteId },
-      { new: true, runValidators: true }
+      { returnDocument: 'after', runValidators: true }
     );
 
     if (!updatedCategory) {

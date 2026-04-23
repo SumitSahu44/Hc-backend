@@ -82,7 +82,7 @@ exports.updateMediaEvent = async (req, res) => {
     const updatedEvent = await MediaEvent.findByIdAndUpdate(
       req.params.id,
       { title, category, date, siteId, image },
-      { new: true }
+      { returnDocument: 'after' }
     );
 
     res.status(200).json({

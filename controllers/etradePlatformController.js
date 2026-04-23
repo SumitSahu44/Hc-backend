@@ -62,7 +62,7 @@ exports.submitBuyerPlatform = async (req, res) => {
             attachments
         };
 
-        transporter.sendMail(mailOptions).catch(err => console.error("Email Error:", err.message));
+        sendEmail(mailOptions).catch(err => console.error("Email Error:", err.message));
 
         return res.status(201).json({ success: true, message: "Buyer form submitted successfully.", data: newBuyer });
     } catch (error) {
@@ -128,7 +128,7 @@ exports.submitSellerPlatform = async (req, res) => {
             attachments
         };
 
-        transporter.sendMail(mailOptions).catch(err => console.error("Email Error:", err.message));
+        sendEmail(mailOptions).catch(err => console.error("Email Error:", err.message));
 
         return res.status(201).json({ success: true, message: "Seller form submitted successfully.", data: newSeller });
     } catch (error) {
