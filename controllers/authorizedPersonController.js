@@ -6,16 +6,17 @@ exports.addAuthorizedPerson = async (req, res) => {
   try {
     const { name, code } = req.body;
 
-    if (!name || !code) {
-      return res.status(400).json({ success: false, message: "Name and Code are required." });
+    if (!name || !code || !req.body.siteId) {
+      return res.status(400).json({ success: false, message: "Name, Code, and siteId are required." });
     }
 
-    const existingPerson = await AuthorizedPerson.findOne({ code });
+    const existingPerson = await AuthorizedPerson.findOne({ code, siteId: req.body.siteId });
     if (existingPerson) {
-      return res.status(400).json({ success: false, message: "Code already exists." });
+      return res.status(400).json({ success: false, message: "Code already exists for this site." });
     }
 
-    const newPerson = await AuthorizedPerson.create({ name, code });
+    const newPerson = await AuthorizedPerson.create({ name, code, siteId: req.body.siteId });
+
     return res.status(201).json({ success: true, message: "Authorized person added successfully.", data: newPerson });
   } catch (error) {
     console.error("Add Authorized Person Error:", error);
@@ -34,8 +35,10 @@ exports.validateAuthorizedPerson = async (req, res) => {
     // Case-insensitive matching for name just in case, but code is strict
     const person = await AuthorizedPerson.findOne({
       name: { $regex: new RegExp("^" + name + "$", "i") },
-      code
+      code,
+      siteId: req.body.siteId
     });
+
 
     if (!person) {
       return res.status(401).json({ success: false, message: "Invalid credentials. Authorized person not found." });
@@ -76,10 +79,11 @@ exports.bulkUploadAuthorizedPersons = async (req, res) => {
           const name = row.name || row.Name || row.NAME;
           const code = row.code || row.Code || row.CODE;
 
-          if (name && code) {
-            const existing = await AuthorizedPerson.findOne({ code });
+          if (name && code && req.body.siteId) {
+            const existing = await AuthorizedPerson.findOne({ code, siteId: req.body.siteId });
             if (!existing) {
-              await AuthorizedPerson.create({ name, code });
+              await AuthorizedPerson.create({ name, code, siteId: req.body.siteId });
+
               addedCount++;
             } else {
               skippedCount++;
@@ -103,7 +107,10 @@ exports.bulkUploadAuthorizedPersons = async (req, res) => {
 
 exports.getAuthorizedPersons = async (req, res) => {
   try {
-    const persons = await AuthorizedPerson.find().sort({ createdAt: -1 });
+    const { siteId } = req.query;
+    const query = siteId ? { siteId } : {};
+    const persons = await AuthorizedPerson.find(query).sort({ createdAt: -1 });
+
     return res.status(200).json({ success: true, data: persons });
   } catch (error) {
     console.error("Get Authorized Persons Error:", error);
@@ -122,11 +129,12 @@ exports.updateAuthorizedPerson = async (req, res) => {
     }
 
     if (code !== person.code) {
-      const existing = await AuthorizedPerson.findOne({ code });
+      const existing = await AuthorizedPerson.findOne({ code, siteId: person.siteId });
       if (existing) {
-        return res.status(400).json({ success: false, message: "Code already exists." });
+        return res.status(400).json({ success: false, message: "Code already exists for this site." });
       }
     }
+
 
     person.name = name || person.name;
     person.code = code || person.code;

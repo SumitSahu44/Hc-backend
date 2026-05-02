@@ -52,7 +52,9 @@ exports.deleteContact = async (req, res) => {
 
 exports.getContacts = async (req, res) => {
   try {
-    const contacts = await Contact.find().sort({ createdAt: -1 });
+    const { siteId } = req.query;
+    const query = siteId ? { siteId } : {};
+    const contacts = await Contact.find(query).sort({ createdAt: -1 });
     res.status(200).json({ success: true, data: contacts });
   } catch (error) {
     console.error("Get Contacts Error:", error);

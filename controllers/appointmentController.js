@@ -79,7 +79,9 @@ exports.createAppointment = async (req, res) => {
 
 exports.getAppointments = async (req, res) => {
   try {
-    const appointments = await Appointment.find().sort({ createdAt: -1 });
+    const { siteId } = req.query;
+    const query = siteId ? { siteId } : {};
+    const appointments = await Appointment.find(query).sort({ createdAt: -1 });
     res.status(200).json({ success: true, data: appointments });
   } catch (error) {
     console.error("Get Appointments Error:", error);

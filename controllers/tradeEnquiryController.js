@@ -83,7 +83,9 @@ const submitTradeEnquiry = async (req, res) => {
 
 const getTradeEnquiries = async (req, res) => {
     try {
-        const enquiries = await TradeEnquiry.find().sort({ createdAt: -1 });
+        const { siteId } = req.query;
+        const query = siteId ? { siteId } : {};
+        const enquiries = await TradeEnquiry.find(query).sort({ createdAt: -1 });
         res.status(200).json({ success: true, data: enquiries });
     } catch (error) {
         console.error("Get Trade Enquiries Error:", error);

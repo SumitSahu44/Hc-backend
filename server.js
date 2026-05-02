@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const { tenantHandler } = require("./middleware/tenantMiddleware");
+
 
 const app = express();
 
@@ -14,6 +16,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Multi-tenant identification middleware
+app.use(tenantHandler);
+
+
 // Health check
 app.get(["/", "/api"], (req, res) => {
   res.status(200).json({
@@ -24,7 +30,9 @@ app.get(["/", "/api"], (req, res) => {
 });
 
 // Routes
+app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
+
 // app.use("/api/enquiry", require("./routes/enquiryRoutes"));
 app.use("/api/appointment", require("./routes/appointmentRoutes"));
 app.use("/api/bulk", require("./routes/bulkRoutes"));

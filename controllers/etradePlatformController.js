@@ -167,12 +167,14 @@ exports.submitSellerPlatform = async (req, res) => {
 
 exports.getPlatformSubmissions = async (req, res) => {
     try {
-        const type = req.query.type; // 'buyer' or 'seller'
+        const { type, siteId } = req.query; // 'buyer' or 'seller'
+        const query = siteId ? { siteId } : {};
         let data = [];
         if (type === 'buyer') {
-            data = await EtradeBuyer.find().populate('authorizedPerson').sort({ createdAt: -1 });
+            data = await EtradeBuyer.find(query).populate('authorizedPerson').sort({ createdAt: -1 });
         } else if (type === 'seller') {
-            data = await EtradeSeller.find().populate('authorizedPerson').sort({ createdAt: -1 });
+            data = await EtradeSeller.find(query).populate('authorizedPerson').sort({ createdAt: -1 });
+
         } else {
             return res.status(400).json({ success: false, message: "Type query param must be 'buyer' or 'seller'." });
         }

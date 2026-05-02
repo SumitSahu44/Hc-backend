@@ -72,7 +72,10 @@ const submitAuction = async (req, res) => {
 
 const getAuctions = async (req, res) => {
     try {
-        const auctions = await Auction.find().sort({ createdAt: -1 });
+        const { siteId } = req.query;
+        const query = siteId ? { siteId } : {};
+        const auctions = await Auction.find(query).sort({ createdAt: -1 });
+
         res.status(200).json({ success: true, data: auctions });
     } catch (error) {
         console.error("Get Auctions Error:", error);

@@ -52,7 +52,9 @@ exports.deleteBulkSeller = async (req, res) => {
 
 exports.getBulks = async (req, res) => {
   try {
-    const bulks = await BulkSeller.find().sort({ createdAt: -1 });
+    const { siteId } = req.query;
+    const query = siteId ? { siteId } : {};
+    const bulks = await BulkSeller.find(query).sort({ createdAt: -1 });
     res.status(200).json({ success: true, data: bulks });
   } catch (error) {
     console.error("Get Bulks Error:", error);
