@@ -26,17 +26,21 @@ exports.addAuthorizedPerson = async (req, res) => {
 
 exports.validateAuthorizedPerson = async (req, res) => {
   try {
-    const { name, code } = req.body;
+    let { name, code, siteId } = req.body;
 
     if (!name || !code) {
       return res.status(400).json({ success: false, message: "Name and Code are required." });
     }
 
-    // Case-insensitive matching for name just in case, but code is strict
+    // Trim whitespace to prevent validation failures due to accidental spaces
+    name = name.trim();
+    code = code.trim();
+
+    // Use a safer regex that escapes special characters and matches the full string case-insensitively
     const person = await AuthorizedPerson.findOne({
-      name: { $regex: new RegExp("^" + name + "$", "i") },
+      name: { $regex: new RegExp("^" + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "$", "i") },
       code,
-      siteId: req.body.siteId
+      siteId
     });
 
 
