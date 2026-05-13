@@ -48,6 +48,7 @@ app.use("/api/membership", require("./routes/membershipRoutes"));
 app.use("/api/blogs", require("./routes/blogRoutes"));
 app.use("/api/careers", require("./routes/careerRoutes"));
 app.use("/api/media-events", require("./routes/mediaEventRoutes"));
+app.use("/api/circulars", require("./routes/circularRoutes"));
 
 // Static Folder for Uploads
 app.use("/uploads", express.static("uploads"));

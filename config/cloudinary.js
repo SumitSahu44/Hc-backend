@@ -26,6 +26,7 @@ const storage = new CloudinaryStorage({
     else if (req.originalUrl.includes('quotation')) entityType = 'Quotations';
     else if (req.originalUrl.includes('trade-enquiry')) entityType = 'TradeEnquiries';
     else if (req.originalUrl.includes('membership')) entityType = 'Memberships';
+    else if (req.originalUrl.includes('circular')) entityType = 'Circulars';
 
     const fileName = file.originalname.split('.')[0].replace(/[^a-z0-9_-]/gi, '_');
     const publicId = `${Date.now()}-${fileName}`;
