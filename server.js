@@ -53,6 +53,8 @@ app.use("/api/blog-header", require("./routes/blogHeaderRoutes"));
 app.use("/api/notices", require("./routes/noticeRoutes"));
 app.use("/api/tenders", require("./routes/tenderRoutes"));
 app.use("/api/eauctions", require("./routes/eauctionRoutes"));
+app.use("/api/equotations", require("./routes/equotationRoutes"));
+
 
 
 // Static Folder for Uploads
