@@ -52,6 +52,8 @@ app.use("/api/circulars", require("./routes/circularRoutes"));
 app.use("/api/blog-header", require("./routes/blogHeaderRoutes"));
 app.use("/api/notices", require("./routes/noticeRoutes"));
 app.use("/api/tenders", require("./routes/tenderRoutes"));
+app.use("/api/eauctions", require("./routes/eauctionRoutes"));
+
 
 // Static Folder for Uploads
 app.use("/uploads", express.static("uploads"));
