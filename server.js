@@ -55,6 +55,8 @@ app.use("/api/tenders", require("./routes/tenderRoutes"));
 app.use("/api/eauctions", require("./routes/eauctionRoutes"));
 app.use("/api/equotations", require("./routes/equotationRoutes"));
 app.use("/api/management", require("./routes/managementRoutes"));
+app.use("/api/chamber-services", require("./routes/chamberServiceRoutes"));
+
 
 
 
