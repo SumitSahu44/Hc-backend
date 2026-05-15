@@ -24,11 +24,34 @@ exports.getBlogs = async (req, res) => {
   }
 };
 
+// @desc Get a single blog by ID
+// @route GET /api/blogs/:id
+exports.getBlogById = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) {
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found."
+      });
+    }
+    res.status(200).json({
+      success: true,
+      data: blog
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 // @desc Add a new blog
 // @route POST /api/blogs
 exports.addBlog = async (req, res) => {
   try {
-    const { title, content, author, status, siteId, date } = req.body;
+    const { title, content, author, status, siteId, date, category } = req.body;
     
     if (!req.file) {
       return res.status(400).json({
@@ -46,6 +69,7 @@ exports.addBlog = async (req, res) => {
       thumbnail,
       status: status || "Draft",
       siteId,
+      category: category || "Article",
       date: date || Date.now()
     });
 
@@ -95,7 +119,7 @@ exports.deleteBlog = async (req, res) => {
 // @route PUT /api/blogs/:id
 exports.updateBlog = async (req, res) => {
     try {
-      const { title, content, author, status, siteId, date } = req.body;
+      const { title, content, author, status, siteId, date, category } = req.body;
       const blog = await Blog.findById(req.params.id);
       
       if (!blog) {
@@ -119,6 +143,7 @@ exports.updateBlog = async (req, res) => {
           status,
           siteId,
           thumbnail,
+          category: category || blog.category,
           date: date || blog.date
         },
         { returnDocument: "after" }
