@@ -4,7 +4,7 @@ const getEAuctions = async (req, res) => {
     try {
         const { siteId } = req.query;
         const query = siteId ? { siteId } : {};
-        const auctions = await EAuction.find(query).sort({ createdAt: -1 });
+        const auctions = await EAuction.find(query).sort({ date: -1, createdAt: -1 });
 
         res.status(200).json({ 
             success: true, 
@@ -21,7 +21,7 @@ const getEAuctions = async (req, res) => {
 
 const addEAuction = async (req, res) => {
     try {
-        const { title, description, siteId, status } = req.body;
+        const { title, description, siteId, status, date } = req.body;
         const image = req.file ? req.file.path : null;
 
         if (!title || !description || !siteId) {
@@ -36,7 +36,8 @@ const addEAuction = async (req, res) => {
             description,
             image,
             siteId,
-            status: status || 'active'
+            status: status || 'active',
+            date: date || Date.now()
         });
 
         await newAuction.save();

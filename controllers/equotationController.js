@@ -4,37 +4,40 @@ const getEQuotations = async (req, res) => {
     try {
         const { siteId } = req.query;
         const query = siteId ? { siteId } : {};
-        const quotations = await EQuotation.find(query).sort({ createdAt: -1 });
+        const quotations = await EQuotation.find(query).sort({ date: -1, createdAt: -1 });
 
-        res.status(200).json({ 
-            success: true, 
-            data: quotations 
+        res.status(200).json({
+            success: true,
+            data: quotations
         });
     } catch (error) {
         console.error("Get e-Quotations Error:", error);
-        res.status(500).json({ 
-            success: false, 
-            message: "Internal Server Error" 
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
         });
     }
 };
 
 const addEQuotation = async (req, res) => {
     try {
-        const { title, description, siteId, status } = req.body;
+        const { title, description, siteId, status, date } = req.body;
+        const image = req.file ? req.file.path : null;
 
         if (!title || !description || !siteId) {
-            return res.status(400).json({ 
-                success: false, 
-                message: "Missing required fields (title, description, siteId)" 
+            return res.status(400).json({
+                success: false,
+                message: "Missing required fields (title, description, siteId)"
             });
         }
 
         const newQuotation = new EQuotation({
             title,
             description,
+            image,
             siteId,
-            status: status || 'active'
+            status: status || 'active',
+            date: date || Date.now()
         });
 
         await newQuotation.save();
@@ -58,6 +61,10 @@ const updateEQuotation = async (req, res) => {
     try {
         const { id } = req.params;
         const updateData = { ...req.body };
+
+        if (req.file) {
+            updateData.image = req.file.path;
+        }
 
         const updatedQuotation = await EQuotation.findByIdAndUpdate(
             id,

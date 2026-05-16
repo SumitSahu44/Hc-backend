@@ -75,6 +75,15 @@ app.use((req, res) => {
 // Global error handler
 app.use((err, req, res, next) => {
   console.error("🔥 Unhandled Error:", err.message);
+
+  // Handle Multer File Size Limit
+  if (err.code === 'LIMIT_FILE_SIZE') {
+    return res.status(400).json({
+      success: false,
+      message: "File is too large. Maximum limit is 10MB."
+    });
+  }
+
   res.status(500).json({
     success: false,
     message: "Internal server error."

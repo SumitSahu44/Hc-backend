@@ -10,6 +10,14 @@ const eauctionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  headerTitle: {
+    type: String,
+    default: ''
+  },
+  headerDescription: {
+    type: String,
+    default: ''
+  },
   image: {
     type: String,
     default: null
@@ -31,6 +39,10 @@ const eauctionSchema = new mongoose.Schema({
     type: String,
     enum: ["active", "closed"],
     default: "active"
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 }, { timestamps: true });
 

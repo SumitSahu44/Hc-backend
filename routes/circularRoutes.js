@@ -4,7 +4,10 @@ const multer = require("multer");
 const { storage } = require("../config/cloudinary");
 const circularController = require("../controllers/circularController");
 
-const upload = multer({ storage });
+const upload = multer({ 
+  storage,
+  limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
+});
 
 router.get("/", circularController.getCirculars);
 router.post("/", upload.single("pdf"), circularController.addCircular);
