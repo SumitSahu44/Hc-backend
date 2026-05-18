@@ -93,7 +93,7 @@ exports.bulkUploadAuthorizedPersons = async (req, res) => {
               skippedCount++;
             }
           } else {
-             skippedCount++;
+            skippedCount++;
           }
         }
 
