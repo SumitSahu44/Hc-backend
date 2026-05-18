@@ -1,0 +1,46 @@
+const EAuctionHeader = require('../models/EAuctionHeader');
+
+exports.getEAuctionHeader = async (req, res) => {
+  try {
+    const { siteId } = req.params;
+    let header = await EAuctionHeader.findOne({ siteId });
+    
+    // If not found, create a default one for this site
+    if (!header) {
+      header = await EAuctionHeader.create({ siteId });
+    }
+    
+    res.status(200).json({
+      success: true,
+      data: header
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+exports.updateEAuctionHeader = async (req, res) => {
+  try {
+    const { siteId } = req.params;
+    const updateData = req.body;
+    
+    const header = await EAuctionHeader.findOneAndUpdate(
+      { siteId },
+      updateData,
+      { new: true, upsert: true, runValidators: true }
+    );
+    
+    res.status(200).json({
+      success: true,
+      data: header
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};

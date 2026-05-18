@@ -56,6 +56,11 @@ app.use("/api/eauctions", require("./routes/eauctionRoutes"));
 app.use("/api/equotations", require("./routes/equotationRoutes"));
 app.use("/api/management", require("./routes/managementRoutes"));
 app.use("/api/chamber-services", require("./routes/chamberServiceRoutes"));
+app.use("/api/equotation-header", require("./routes/equotationHeaderRoutes"));
+app.use("/api/eauction-header", require("./routes/eauctionHeaderRoutes"));
+app.use("/api/tender-header", require("./routes/tenderHeaderRoutes"));
+app.use("/api/career-header", require("./routes/careerHeaderRoutes"));
+app.use("/api/circular-header", require("./routes/circularHeaderRoutes"));
 
 
 
