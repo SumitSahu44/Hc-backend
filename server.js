@@ -80,6 +80,9 @@ app.use((req, res) => {
 // Global error handler
 app.use((err, req, res, next) => {
   console.error("🔥 Unhandled Error:", err.message);
+  try {
+    require('fs').appendFileSync('error_log.txt', new Date().toISOString() + '\\n' + err.stack + '\\n\\n');
+  } catch(e) {}
 
   // Handle Multer File Size Limit
   if (err.code === 'LIMIT_FILE_SIZE') {

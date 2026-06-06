@@ -6,7 +6,7 @@ exports.getProducts = async (req, res) => {
   try {
     const { siteId } = req.query;
     const filter = siteId ? { siteId } : {};
-    
+
     const products = await Product.find(filter).sort({ createdAt: -1 });
     res.status(200).json({ success: true, data: products });
   } catch (error) {
